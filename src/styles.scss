@@ -1,1 +1,62 @@
 /* You can add global styles to this file, and also import other style files */
+@import url('./css/pico.min.css');
+:root {
+  --font-family: Zen Old Mincho,Helvetica,Arial,sans-serif;
+}
+.h-100 {
+  height: 100%;
+}
+.vh-100 {
+  height: 100vh;
+}
+.d-flex {
+  display: flex;
+}
+.flex-column {
+  flex-direction: column;
+}
+.justify-content-center {
+  justify-content: center;
+}
+.justify-content-between {
+  justify-content: space-between;
+}
+.align-items-center {
+  align-items: center;
+}
+.w-100 {
+  width: 100%;
+}
+.m-auto {
+  margin: auto;
+}
+.m-0 {
+  margin: 0;
+}
+.ml-c {
+  margin-left: 0.5rem;
+}
+.ml-1 {
+  margin-left: 1rem;
+}
+.ml-2 {
+  margin-left: 2rem;
+}
+.mt-c {
+  margin-top: 0.5rem;
+}
+.mt-1 {
+  margin-top: 1rem;
+}
+section {
+  margin-bottom: 0;
+}
+.pointer {
+  cursor: pointer;
+}
+.gap-c {
+  gap: 0.5rem;
+}
+.pb-0 {
+  padding-bottom: 0;
+}

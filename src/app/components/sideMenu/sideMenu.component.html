@@ -1,0 +1,80 @@
+<div id="menu">
+  <div class="d-flex flex-row item-active-element" (click)="openElementToggle('theme')">
+    <a class="material-symbols-outlined secondary item-active-element">
+      routine
+    </a>
+  </div>
+  <div class="item-active-element" (click)="openElementToggle('color')">
+    <div class="color-picker-icon pointer item-active-element">
+    </div>
+  </div>
+  <div (click)="openModalToggle('info')">
+    <a class="material-symbols-outlined secondary">
+      info
+    </a>
+  </div>
+</div>
+<div id="theme-picker" class="element-openable item-active-element" *ngIf="openElement == 'theme'">
+  <div class="d-flex flex-row gap-c">
+    <ng-container *ngFor="let theme of themeList">
+      <a class="material-symbols-outlined secondary item-active-element" (click)="changeTheme(theme)">
+        {{theme + '_mode'}}
+      </a>
+    </ng-container>
+  </div>
+</div>
+
+<div id="color-picker" class="element-openable item-active-element" *ngIf="openElement == 'color'">
+  <div class="d-flex flex-row gap-c item-active-element">
+    <ng-container *ngFor="let color of colorList">
+      <div class="color-picker-item pointer item-active-element" (click)="changeColor(color)"
+        [ngStyle]="{'background-color': color}">
+      </div>
+    </ng-container>
+  </div>
+</div>
+
+
+
+<dialog id="modal-example" [open]="openModal == 'info'">
+  <article class="w-100 pb-0">
+    <header>
+      <div class="d-flex flex-row justify-content-between align-items-center  ">
+        <h3 class="m-0">Informations</h3>
+        <a href="#close" aria-label="Close" class="close" data-target="modal-example" (click)="openModalToggle('info')">
+        </a>
+      </div>
+    </header>
+    <div class="grid">
+      <p>
+        <strong>Auteur</strong> : Paul Richez
+      </p>
+      <p>
+        <strong>Git</strong> : <a href="https://{{repository}}" target="_blank">{{repository}}</a>
+      </p>
+    </div>
+    <article>
+      <header>
+        <span>Librairies utilisées</span>
+      </header>
+      <div class="grid">
+        <div *ngFor="let library of libraryList" class="d-flex align-items-center">
+          {{library.label}}
+          <div class="ml-c" *ngIf="library.logoClass" [ngClass]="library.logoClass"></div>
+          <div class="ml-c" *ngIf="library.inlineSvg" [innerHTML]="library.inlineSvg | bypassHtmlSanitizer">
+          </div>
+        </div>
+      </div>
+    </article>
+    <article class="m-0">
+      <header>
+        <span>Fonts utilisées</span>
+      </header>
+      <div class="grid">
+        <div *ngFor="let font of fontList" class="d-flex align-items-center">
+          {{font.label}}
+        </div>
+      </div>
+    </article>
+  </article>
+</dialog>

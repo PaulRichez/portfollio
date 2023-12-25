@@ -1,0 +1,88 @@
+:host {
+  display: block;
+  position: absolute;
+  right: 0;
+  top: 3rem;
+  border-top-left-radius: var(--border-radius);
+  border-bottom-left-radius: var(--border-radius);
+  background: var(--card-background-color);
+  box-shadow: var(--card-box-shadow);
+  padding: 0.5rem;
+  padding-bottom: 0;
+}
+
+a:hover {
+  text-decoration: none !important;
+}
+
+a:focus {
+  text-decoration: none !important;
+}
+
+a {
+  text-decoration: none !important;
+}
+
+.color-picker-icon {
+  border-radius: 50%;
+  height: 24px;
+  width: 24px;
+  background-color: var(--primary);
+}
+
+div {
+  border-bottom: 0 !important;
+  cursor: pointer !important;
+}
+
+#menu>div:not(:first-child) {
+  border-top: 1px solid var(--secondary);
+  padding-block: 0.5rem;
+}
+
+#menu>div:is(:last-child) {
+  padding-bottom: 0 !important;
+}
+
+#menu>div:is(:first-child) {
+  padding-bottom: 0.5rem !important;
+}
+
+
+#theme-picker {
+  top: 0;
+  right: 50px;
+}
+
+#color-picker {
+  top: 44px;
+  right: 50px;
+}
+
+.element-openable {
+  position: absolute;
+  border-radius: var(--border-radius);
+  background: var(--card-background-color);
+  box-shadow: var(--card-box-shadow);
+  padding: 0.5rem;
+}
+
+.color-picker-item {
+  height: 24px;
+  width: 24px;
+  border-radius: 50%;
+}
+
+.logo-angular {
+  height: 32px;
+  width: 32px;
+  background-image: url("/assets/images/logo_angular.gif");
+  background-size: cover;
+}
+
+.logo-picocss {
+  height: 32px;
+  width: 32px;
+  background-image: url("/assets/images/logo_picocss.svg");
+  background-size: cover;
+}
