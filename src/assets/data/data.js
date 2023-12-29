@@ -6,7 +6,7 @@ myCvData = {
         birthDay: "1992-09-08",
         phoneNumber: "07 77 30 19 65",
         email: "paul.richez59@gmail.com",
-        postName: "Développeur Front End",
+        postName: "Développeur web",
         linkedin: "https://www.linkedin.com/in/paul-richez/",
         github: "https://github.com/PaulRichez",
         website: "https://paulrichez.fr",

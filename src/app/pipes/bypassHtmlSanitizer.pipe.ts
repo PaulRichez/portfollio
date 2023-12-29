@@ -5,7 +5,10 @@ import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
 export class BypassHtmlSanitizerPipe implements PipeTransform {
   constructor(private sanitizer: DomSanitizer) { }
 
-  transform(html: string): SafeHtml {
+  transform(html: string | null): SafeHtml {
+    if (html === null) {
+      return '';
+    }
     return this.sanitizer.bypassSecurityTrustHtml(html);
   }
 }

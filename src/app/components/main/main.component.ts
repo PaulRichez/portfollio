@@ -1,6 +1,9 @@
-import { CommonModule } from '@angular/common';
+import { AsyncPipe, CommonModule } from '@angular/common';
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { DateToCurrentPipe } from '../../pipes/dateToCurrent.pipe';
+import { BypassHtmlSanitizerPipe } from '../../pipes/bypassHtmlSanitizer.pipe';
+import { getSvgPath } from '../../pipes/getSvg.pipe';
+import { CvService } from '../../services/cv.service';
 
 declare var myCvData: any;
 @Component({
@@ -9,6 +12,9 @@ declare var myCvData: any;
   imports: [
     CommonModule,
     DateToCurrentPipe,
+    BypassHtmlSanitizerPipe,
+    getSvgPath,
+    AsyncPipe,
   ],
   templateUrl: './main.component.html',
   styleUrl: './main.component.css',
@@ -16,7 +22,13 @@ declare var myCvData: any;
 })
 export class MainComponent {
   public myCvData = myCvData;
-  constructor() {
-    console.log(myCvData);
+  constructor(
+    private cvService: CvService,
+  ) {
+    console.log(this.myCvData);
+  }
+
+  downloadCv() {
+    this.cvService.getMyCV().download('cv_paul_richez.pdf');
   }
 }

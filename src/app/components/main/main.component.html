@@ -1,37 +1,54 @@
 <section class="vh-100 d-flex">
-  <article class="grid m-auto w-100">
-    <div>
-      <div class="progress blue">
-        <span class="progress-left">
-          <span class="progress-bar"></span>
-        </span>
-        <span class="progress-right">
-          <span class="progress-bar"></span>
-        </span>
-        <div class="progress-value">
-
+  <article class=" m-auto w-100">
+    <div class="grid w-100">
+      <div class="pt-c">
+        <div class="progress blue">
+          <span class="progress-left">
+            <span class="progress-bar"></span>
+          </span>
+          <span class="progress-right">
+            <span class="progress-bar"></span>
+          </span>
+          <div class="progress-value"></div>
+        </div>
+      </div>
+      <div class="d-flex">
+        <div class="m-auto">
+          <hgroup>
+            <h1>{{myCvData.user.firstName + ' ' + myCvData.user.lastName }}</h1>
+            <h2>Développeur web</h2>
+          </hgroup>
+          <h6>{{ myCvData.user.birthDay | appDateToCurrent }} - Lille</h6>
+          <div class="d-flex align-items-center">
+            <span class="material-symbols-outlined">
+              alternate_email
+            </span>
+            <a class="ml-c" [attr.href]="'mailTo:' + myCvData.user.email" target="_blank">{{ myCvData.user.email }}</a>
+          </div>
+          <div class="d-flex align-items-center mt-c">
+            <span class="material-symbols-outlined">
+              phone
+            </span>
+            <a class="ml-c" [attr.href]="'tel:' + myCvData.user.phoneNumber" target="_blank">{{
+              myCvData.user.phoneNumber
+              }}</a>
+          </div>
         </div>
       </div>
     </div>
-    <div class="d-flex">
+    <div class="grid text-center align-items-center">
+      <div class="m-1">
+        <a (click)="downloadCv()" class="pointer">Télécharger mon CV</a>
+      </div>
       <div class="m-auto">
-        <hgroup>
-          <h1>{{myCvData.user.firstName + ' ' + myCvData.user.lastName }}</h1>
-          <h2>Développeur web</h2>
-        </hgroup>
-        <h6>{{ myCvData.user.birthDay | appDateToCurrent }} - Lille</h6>
-        <div class="d-flex align-items-center">
-          <span class="material-symbols-outlined">
-            alternate_email
-          </span>
-          <a class="ml-c" [attr.href]="'mailTo:' + myCvData.user.email" target="_blank">{{ myCvData.user.email }}</a>
-        </div>
-        <div class="d-flex align-items-center mt-c">
-          <span class="material-symbols-outlined">
-            phone
-          </span>
-          <a class="ml-c" [attr.href]="'tel:' + myCvData.user.phoneNumber" target="_blank">{{ myCvData.user.phoneNumber
-            }}</a>
+        <div class="d-flex justify-content-start gap-1">
+          <a [attr.href]="'https://www.linkedin.com/in/paul-richez/'" target="_blank" class="secondary">
+            <div class="icone" [innerHTML]="('assets/images/linkedin.svg'| getSvg | async) | bypassHtmlSanitizer">
+            </div>
+          </a>
+          <a [attr.href]="'https://github.com/PaulRichez'" target="_blank" class="secondary">
+            <div class="icone" [innerHTML]="('assets/images/github.svg'| getSvg | async) | bypassHtmlSanitizer"></div>
+          </a>
         </div>
       </div>
     </div>
