@@ -1,0 +1,12 @@
+<h3>{{ timeline.nom }}</h3>
+<div class="timeline-container">
+  <div *ngFor="let event of timeline?.events" class="timelineEvent">
+    <div class="timelineEventDate">
+      <span>{{ event.dateDebut }}</span>
+    </div>
+    <div class="timelineEventContent">
+      <span class="timelineEventContent-title">{{ event.titre }}</span>
+      <p>{{ event.description }}</p>
+    </div>
+  </div>
+</div>
