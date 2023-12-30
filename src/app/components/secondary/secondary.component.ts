@@ -17,6 +17,7 @@ declare var myCvData: any;
 export class SecondaryComponent {
   public myCvData = myCvData;
   public experienceTimeline: ITimeLine;
+  public diplomasTimeline: ITimeLine;
   constructor() {
 
     this.experienceTimeline = {
@@ -25,8 +26,20 @@ export class SecondaryComponent {
         return {
           dateDebut: experience.startDate,
           dateFin: experience.endDate,
-          titre: experience.job + ' - ' + experience.business,
+          titre: experience.job,
           description: experience.descriptions,
+          footer: `${experience.business}`,
+        };
+      })
+    };
+    this.diplomasTimeline = {
+      nom: 'Diplômes',
+      events: this.myCvData.diplomas.map((diploma: any) => {
+        return {
+          dateDebut: diploma.startDate,
+          dateFin: diploma.endDate,
+          titre: diploma.description,
+          description: diploma.title,
         };
       })
     };

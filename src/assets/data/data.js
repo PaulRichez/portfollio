@@ -33,7 +33,7 @@ myCvData = {
             value: 50
         }
     ],
-    knowledge: ["html-1", "css-3", "javascript-1", "vue-js-1", "angular-icon", "bootstrap-5-1", "nodejs-icon", "git-icon", "jenkins-1","firebase-1","strapi-2"],
+    knowledge: ["html-1", "css-3", "javascript-1", "vue-9", "angular-icon", "bootstrap-5-1", "nodejs-icon", "git-icon", "jenkins-1","firebase-1","strapi-2"],
     languages: [
         {
             key: "Français",
@@ -64,6 +64,16 @@ myCvData = {
         }
     ],
     experiences: [
+        {
+            startDate: "2023-04-11",
+            endDate: "Now",
+            job: "Développeur Fullstack",
+            business: "Rewayz",
+            businessWebsite: "https://rewayz.com",
+            descriptions: [
+                "Développement d'une plateforme web avec Angular et Strapi",
+            ]
+        },
         {
             startDate: "2020-07-07",
             endDate: "2021-05-01",

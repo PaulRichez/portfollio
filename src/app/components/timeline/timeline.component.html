@@ -1,12 +1,28 @@
 <h3>{{ timeline.nom }}</h3>
 <div class="timeline-container">
-  <div *ngFor="let event of timeline?.events" class="timelineEvent">
-    <div class="timelineEventDate">
-      <span>{{ event.dateDebut }}</span>
-    </div>
-    <div class="timelineEventContent">
-      <span class="timelineEventContent-title">{{ event.titre }}</span>
-      <p>{{ event.description }}</p>
-    </div>
+  <div class="timeline-scroller">
+    <article *ngFor="let event of timeline?.events" class="timelineEvent">
+      <header>
+        <span class="timelineEventContent-title">{{ event.titre }}</span>
+      </header>
+      <div class="timelineEventContent">
+        <small>{{ event.description }}</small>
+      </div>
+      <footer *ngIf="event.footer">
+        <span>{{ event.footer }}</span>
+      </footer>
+      <div class="timelineEventDates">
+        <div *ngIf="event.dateFin">
+          <ng-container *ngIf="event.dateFin == 'Now'; else DateFin">
+            Aujourd'hui
+          </ng-container>
+          <ng-template #DateFin>
+            {{ event.dateFin | date: 'yyyy' }}
+          </ng-template>
+        </div>
+        <div *ngIf="event.dateFin" style="padding-bottom:2px;margin-inline:5px">&#8610;</div>
+        <div>{{ event.dateDebut | date: 'yyyy' }}</div>
+      </div>
+    </article>
   </div>
 </div>

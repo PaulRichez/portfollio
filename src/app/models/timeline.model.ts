@@ -8,4 +8,5 @@ export interface IEvent {
   dateFin: string;
   titre: string;
   description: string;
+  footer: string;
 }
