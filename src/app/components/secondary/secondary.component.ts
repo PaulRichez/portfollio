@@ -2,6 +2,7 @@ import { CommonModule } from '@angular/common';
 import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
 import { TimelineComponent } from '../timeline/timeline.component';
 import { ITimeLine } from '../../models/timeline.model';
+import { carouselPortfolioComponent } from '../carousel-portfolio/carousel-portfolio.component';
 declare var myCvData: any;
 @Component({
   selector: 'app-secondary',
@@ -9,6 +10,7 @@ declare var myCvData: any;
   imports: [
     CommonModule,
     TimelineComponent,
+    carouselPortfolioComponent,
   ],
   templateUrl: './secondary.component.html',
   styleUrl: './secondary.component.css',

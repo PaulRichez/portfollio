@@ -1,0 +1,16 @@
+:host {
+  display: block;
+}
+
+#main-carousel {
+  width: 100%;
+  overflow-x: auto;
+  display: flex;
+  gap: 100px;
+}
+
+article {
+  min-width: 370px;
+  width: 350px;
+  height: 100%;
+}

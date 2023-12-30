@@ -1,0 +1,24 @@
+<h3>Porfolio</h3>
+<div id="main-carousel">
+  <ng-container *ngFor="let project of portfolioService.portoflioData">
+    <article>
+      <header>
+        <b>{{project.name}}</b>
+      </header>
+      <div class="content">
+        <small>{{project.shotDescription}}</small>
+      </div>
+      <footer>
+        <div class="d-flex gap-1">
+          <a *ngIf="project.github" [attr.href]="project.github" target="_blank" class="secondary">
+            <div class="icone" [innerHTML]="('assets/images/github.svg'| getSvg | async) | bypassHtmlSanitizer"></div>
+          </a>
+          <a *ngIf="project.npm" [attr.href]="project.npm" target="_blank" class="secondary">
+            <div class="icone" [innerHTML]="('assets/images/npm.svg'| getSvg | async) | bypassHtmlSanitizer"></div>
+          </a>
+        </div>
+      </footer>
+    </article>
+  </ng-container>
+
+</div>
