@@ -17,7 +17,7 @@ export class SideMenuComponent implements OnInit {
   openModal: string | null = null;
   themeList = ['light', 'dark'];
   colorList = ['red', 'hsl(195, 85%, 41%)', 'green', 'yellow', 'purple', 'orange'];
-  repository = 'github.com/PaulRichez';
+  repository = 'github.com/PaulRichez/portfollio';
   libraryList = [
     {
       label: 'Angular 17',
