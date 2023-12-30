@@ -8,29 +8,29 @@
     <div class="color-picker-icon pointer item-active-element">
     </div>
   </div>
+  <span id="theme-picker" class="element-openable item-active-element" *ngIf="openElement == 'theme'">
+    <div class="d-flex flex-row gap-c">
+      <ng-container *ngFor="let theme of themeList">
+        <a class="material-symbols-outlined secondary item-active-element" (click)="changeTheme(theme)">
+          {{theme + '_mode'}}
+        </a>
+      </ng-container>
+    </div>
+  </span>
+
+  <span id="color-picker" class="element-openable item-active-element" *ngIf="openElement == 'color'">
+    <div class="d-flex flex-row gap-c item-active-element">
+      <ng-container *ngFor="let color of colorList">
+        <div class="color-picker-item pointer item-active-element" (click)="changeColor(color)"
+          [ngStyle]="{'background-color': color}">
+        </div>
+      </ng-container>
+    </div>
+  </span>
   <div (click)="openModalToggle('info')">
     <a class="material-symbols-outlined secondary">
       info
     </a>
-  </div>
-</div>
-<div id="theme-picker" class="element-openable item-active-element" *ngIf="openElement == 'theme'">
-  <div class="d-flex flex-row gap-c">
-    <ng-container *ngFor="let theme of themeList">
-      <a class="material-symbols-outlined secondary item-active-element" (click)="changeTheme(theme)">
-        {{theme + '_mode'}}
-      </a>
-    </ng-container>
-  </div>
-</div>
-
-<div id="color-picker" class="element-openable item-active-element" *ngIf="openElement == 'color'">
-  <div class="d-flex flex-row gap-c item-active-element">
-    <ng-container *ngFor="let color of colorList">
-      <div class="color-picker-item pointer item-active-element" (click)="changeColor(color)"
-        [ngStyle]="{'background-color': color}">
-      </div>
-    </ng-container>
   </div>
 </div>
 
