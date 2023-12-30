@@ -66,13 +66,20 @@ export class SideMenuComponent implements OnInit {
 
   openModalToggle(modal: string): void {
     if (this.openModal === modal) {
-      document.documentElement.classList.remove('modal-is-opening');
-      document.documentElement.classList.remove('modal-is-open');
-      this.openModal = null;
+      document.documentElement.classList.add('modal-is-closing');
+      setTimeout(() => {
+        document.documentElement.classList.remove('modal-is-closing');
+        document.documentElement.classList.remove('modal-is-open');
+        this.openModal = null;
+      }, 400);
     } else {
       this.openModal = modal;
       document.documentElement.classList.add('modal-is-open');
       document.documentElement.classList.add('modal-is-opening');
+      setTimeout(() => {
+        document.documentElement.classList.remove('modal-is-opening');
+      }, 400);
+
     }
   }
 
