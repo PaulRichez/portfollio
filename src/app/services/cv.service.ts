@@ -113,7 +113,9 @@ export class CvService {
     }
 
     const getFormatedDateForDiplomas = (item: any) => {
-      if (item.startDate && item.endDate) {
+      if (item.startDate && item.endDate == 'Now') {
+        return "Depuis " + new Date(item.startDate).getFullYear();
+      } else if (item.startDate && item.endDate) {
         return (
           "De " +
           new Date(item.startDate).getFullYear() +
@@ -121,7 +123,7 @@ export class CvService {
           new Date(item.endDate).getFullYear()
         );
       } else {
-        return new Date(item.startDate).getFullYear().toString();
+        return "En " + new Date(item.startDate).getFullYear().toString();
       }
     }
 
@@ -153,7 +155,7 @@ export class CvService {
         lineHeight: 1.2
       },
       images: {
-        profil: window.location.origin +'/assets/images/profil.jpg',
+        profil: window.location.origin + '/assets/images/profil.jpg',
       },
       info: {
         title: 'Paul Richez CV',
