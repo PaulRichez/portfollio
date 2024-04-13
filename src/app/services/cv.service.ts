@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import pdfMake from "pdfmake/build/pdfmake";
 import pdfFonts from "pdfmake/build/vfs_fonts";
 import { TDocumentDefinitions } from 'pdfmake/interfaces';
+import { DateToCurrentPipe } from '../pipes/dateToCurrent.pipe';
 pdfMake.vfs = pdfFonts.pdfMake.vfs;
 declare var myCvData: any;
 @Injectable({
@@ -9,10 +10,13 @@ declare var myCvData: any;
 })
 export class CvService {
   private myCvData = myCvData;
-  constructor() { }
+  constructor(
+    private dateToCurrentPipe: DateToCurrentPipe,
+  ) { }
 
   getMyCV() {
-    const age = new Date().getFullYear() - new Date(this.myCvData.user.birthDay).getFullYear();
+    console.log('myCvData', myCvData);
+    const age = this.dateToCurrentPipe.transform(myCvData.user.birthDay);
 
     const getCoding = () => {
       const _width = 150;
