@@ -1,0 +1,8 @@
+version: '3.7'
+services:
+  angular:
+    container_name: portfolio
+    restart: always
+    build: .
+    ports:
+      - "92:80"
