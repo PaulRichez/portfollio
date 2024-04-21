@@ -22,7 +22,7 @@ RUN npm run build -- --output-path=./dist/out
 FROM nginx:latest
 
 # Copy the build output to replace the default nginx contents.
-COPY --from=build /usr/local/app/dist/out /usr/share/nginx/html
+COPY --from=build /usr/local/app/dist/out/browser /usr/share/nginx/html
 
 # single page
 # Copy the respective nginx configuration files
