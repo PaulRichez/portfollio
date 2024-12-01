@@ -1,3 +1,10 @@
+#shortcut-font {
+  position: absolute;
+  right: 12px;
+  top: 15px;
+  font-family: 'Courier New', Courier, monospace;
+}
+
 #menu {
   display: block;
   position: fixed;
@@ -49,14 +56,18 @@ div {
   padding-bottom: 0.5rem !important;
 }
 
-
-#theme-picker {
+#pills-picker {
   top: 0;
   right: 50px;
 }
 
-#color-picker {
+#theme-picker {
   top: 44px;
+  right: 50px;
+}
+
+#color-picker {
+  top: 88px;
   right: 50px;
 }
 
@@ -85,5 +96,11 @@ div {
   height: 32px;
   width: 32px;
   background-image: url("/assets/images/logo_picocss.svg");
+  background-size: cover;
+}
+
+.icon {
+  height: 24px;
+  width: 24px;
   background-size: cover;
 }

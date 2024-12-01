@@ -1,18 +1,21 @@
 import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { BypassHtmlSanitizerPipe } from '../../pipes/bypassHtmlSanitizer.pipe';
+import { getSvgPath } from '../../pipes/getSvg.pipe';
 
 @Component({
   selector: 'app-side-menu',
   standalone: true,
   imports: [
     CommonModule,
-    BypassHtmlSanitizerPipe
+    BypassHtmlSanitizerPipe,
+    getSvgPath
   ],
   templateUrl: './sideMenu.component.html',
   styleUrl: './sideMenu.component.css',
 })
 export class SideMenuComponent implements OnInit {
+  isDrugFont = true;
   openElement: string | null = null;
   openModal: string | null = null;
   themeList = ['light', 'dark'];
@@ -37,11 +40,25 @@ export class SideMenuComponent implements OnInit {
     },
     {
       label: 'Zen Old Mincho',
-    }
+    },
+    {
+      label: 'JLRPlacebo',
+    },
   ];
 
   private eventListenr = this.eventListenerMenu.bind(this);
   ngOnInit(): void {
+  }
+
+  changeFont(font: string): void {
+    // change root --font-family variable  --font-family: 'JLR Placebo',Zen Old Mincho,Helvetica,Arial,sans-serif;
+    if (font == 'pills') {
+      this.isDrugFont = true;
+      document.documentElement.style.setProperty('--font-family', 'JLR Placebo,Zen Old Mincho,Helvetica,Arial,sans-serif');
+    } else {
+      this.isDrugFont = false;
+      document.documentElement.style.setProperty('--font-family', 'Zen Old Mincho,Helvetica,Arial,sans-serif');
+    }
   }
 
   changeTheme(theme: string): void {

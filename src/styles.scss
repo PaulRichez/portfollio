@@ -1,7 +1,17 @@
 /* You can add global styles to this file, and also import other style files */
 @import url('./css/pico.min.css');
+@font-face {
+  font-family: 'JLR Placebo';
+  src: url('./assets/fonts/JLRPlacebo.woff2') format('woff2'),
+      url('./assets/fonts/JLRPlacebo.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+
 :root {
-  --font-family: Zen Old Mincho,Helvetica,Arial,sans-serif;
+  --font-family: 'JLR Placebo',Zen Old Mincho,Helvetica,Arial,sans-serif;
   --spacing: 0.5rem;
 }
 .h-100 {
@@ -82,6 +92,14 @@ section {
 .icone {
   height: 50px;
   width: 50px;
+  > svg {
+    height: 100%;
+    width: 100%;
+  }
+}
+.icone-small {
+  height: 24px;
+  width: 24px;
   > svg {
     height: 100%;
     width: 100%;
